@@ -1,0 +1,70 @@
+.li-filter{
+    background-color:#dadce0;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    width: 200px;
+    padding: 5px;
+    text-align: center;
+    transition: 0.5s;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgb(0,0,0, 0.15);
+    border: 2px solid #dadce0;
+    user-select: none; 
+  }
+ .container-row-filter{
+   display: flex;
+   flex-direction: row;
+ }
+ .add-icon{
+   align-self: center;
+   justify-self: center;
+   font-size: 15px;
+   color: green;
+   margin:5px;
+   cursor: pointer;
+ }
+
+
+
+ .li-filter-add{
+  background-color:green;
+  color:white;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  width: 200px;
+  padding: 5px;
+  text-align: center;
+  transition: 0.5s;
+  cursor: pointer;
+  border: 2px solid green
+}
+  .li-filter-selected{
+    border: 2px solid rgb(55,78,107)
+  }
+
+
+  .li-filter:hover{
+    background-color:rgb(55,78,107);
+    color:white;
+    
+  }
+
+  .box-form-filter{
+    display: flex;
+    flex-direction: row;
+    width: 800px;
+    min-width: 200px;
+  }
+
+  .container-param-filter{
+    border: 1px solid #dadce0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    margin-left: 20px;
+    padding: 15px;
+    box-sizing: border-box;
+    background-color: white;
+  }

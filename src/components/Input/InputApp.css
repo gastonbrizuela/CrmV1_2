@@ -1,0 +1,64 @@
+.input-materialx {
+    box-sizing: border-box;
+     border: 1px solid #dadce0;
+     border-radius: 5px;
+     height: 40px;
+     width: 300px;
+     padding: 5px;
+     outline: none;
+     padding-left: 10px;
+     margin: 10px;
+  
+    }
+    
+    .input-material:focus{
+      border: 1px solid  rgb(55,78,107);
+    }
+    .card{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-sizing: border-box;
+      width: 100%;
+      padding-top: 25px;
+      padding-bottom: 10px;
+    }
+    .box-form{
+      width: 800px;
+      min-width: 200px;
+      align-items: center;
+      justify-content: center;
+    }
+    .content-input{
+      position: relative;
+      margin-bottom: 12px;
+    }
+    .input-material{
+      box-sizing: border-box;
+      background-color: #f9f9f9;
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 10px;
+      border: 1px solid #dadce0;
+      border-radius: 5px;
+      outline: none;
+      
+    }
+    .label-material{
+      color:#dadce0;
+      position: absolute;
+      top:0;
+      left: 0;
+      padding: 5px;
+      pointer-events: none;
+      transition: 0.4s;
+      visibility: hidden;
+    }
+  
+    .input-material:valid ~ .label-material
+    {
+      color: rgb(55,78,107);
+      top:-20px;
+      font-size: 12px;
+      visibility:visible
+    }

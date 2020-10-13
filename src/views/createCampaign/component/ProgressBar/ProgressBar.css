@@ -1,0 +1,32 @@
+
+  .progress-bar-conteiner{
+    width: 100%;
+  }
+  .progress-bar-conteiner ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+
+  }
+  .progress-bar-li {
+    background-color: #f9f9f9;
+    width: 300px;
+    font-size: 20px;
+    margin: 10px;
+    padding: 10px;
+    transition: .5s;  
+  }
+
+  .progress-bar-li-select{
+    background-color:  rgb(55,78,107);
+    color: white;
+    width: 300px;
+    font-size: 20px;
+    margin: 10px;
+    padding: 10px;
+    transform: translateX(10px) skewX(-15deg);
+    opacity:1;
+    transition: .5s;
+  }
+

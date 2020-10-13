@@ -1,0 +1,29 @@
+.resume-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+.resume-datail-content{
+    margin-bottom:15px;
+    border: 1px solid #dadce0;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
+    box-sizing: border-box;
+    background-color: white;
+    width: 25%;
+}
+
+.container-card-filter{
+    margin-bottom:15px;
+    border: 1px solid #dadce0;
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+    background-color: white;
+    padding: 5px;
+}

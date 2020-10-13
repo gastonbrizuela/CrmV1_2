@@ -1,0 +1,30 @@
+.container-nav-bar{
+    height: 40px;
+    background-color:  rgb(55,78,107);
+    position: sticky;
+    top:0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 40px;
+    padding-right: 40px;
+    box-sizing: border-box;
+}
+
+.nav-items{
+    width: 125px;
+    display: flex;
+    flex-direction: row;
+    font-size: 18px;
+    justify-content: space-around;
+    color: #EEEEEE;
+    cursor: pointer;
+}
+
+.title-nav-bar{
+    color: white;
+}
+.nav-items:hover{
+    color: white;
+}

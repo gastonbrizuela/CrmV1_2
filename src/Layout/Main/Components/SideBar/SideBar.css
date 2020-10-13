@@ -1,0 +1,45 @@
+.sidebar ul a{
+    display: block;
+    height: 100%;
+    width: 100%;
+    line-height: 30px;
+    font-size: 15px;
+    color:black;
+    padding-left: 40px;
+    box-sizing: border-box;
+    transition: all .4s ease;/* para que haga mas lento el cambio por ej en el hover*/
+    cursor: pointer;
+  }
+  
+  .sidebar ul li:hover a{
+    padding-left: 50px;
+    background-color:#ebe6df; /*es como si se moviera un poquito a la izquierda en referencia al paddin anteriro*/
+  }
+  
+  .li-side-bar-selected{
+    background-color:#ebe6df;
+  }
+  
+  .sidebar i{
+    color:#606060;
+    margin-right: 10px;
+  }
+  
+  .header-bar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+  
+  .bar{
+    position: sticky;
+    top: 40px;
+    background-color:white;
+  }
+  
+  .container-side-bar{
+    background-color:white;
+    min-height: 100vh;
+
+  }
