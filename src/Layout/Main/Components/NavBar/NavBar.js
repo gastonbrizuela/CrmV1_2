@@ -8,9 +8,7 @@ const NavBar = ()=>{
                     <ul className='nav-items'>
                         <li>@usuario</li>
                         <li>
-                            <a>
-                                <i class="fas fa-sign-out-alt" ></i>
-                            </a>    
+                                <i className="fas fa-sign-out-alt" ></i>  
                         </li>
                     </ul>
                 </nav>

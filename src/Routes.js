@@ -6,8 +6,7 @@ import Minimal from './Layout/Minimal/Minimal';
 import Campaign from './views/campaign/Campaign';
 import CreateCamp from './views/createCampaign/CreateCamp';
 import NotFound from './views/notFound/NotFound';
-
-
+import ResumeGral from './views/ResumeGral/ResumeGral';
 
 
 const Routes =()=>{
@@ -28,6 +27,12 @@ const Routes =()=>{
                     path="/createcamp"
                     layout = {Main}
                     component = {CreateCamp}
+                    />
+                    <RouteWithLayout
+                    exact
+                    path="/campaign/:id"
+                    layout = {Main}
+                    component = {ResumeGral}
                     />
                     <RouteWithLayout
                     exact

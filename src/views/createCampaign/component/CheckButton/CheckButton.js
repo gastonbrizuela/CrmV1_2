@@ -1,10 +1,10 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import './CheckButton.css'
 
 const CheckButton = ({checkSaveCamp,text})=>{
     let className = ''
     let classNameicon = ''
-    if (checkSaveCamp==1){
+    if (checkSaveCamp===1){
         className = 'check-icon-label-save'
         classNameicon = 'check-icon-save'
     }
@@ -13,7 +13,7 @@ const CheckButton = ({checkSaveCamp,text})=>{
         classNameicon = 'check-icon'
     }
     const renderText = ()=>{
-        if (checkSaveCamp==1) {
+        if (checkSaveCamp===1) {
 
             return(<label className='text-check'><b>{text}</b></label>)
         }else{

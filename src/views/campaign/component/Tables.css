@@ -19,14 +19,15 @@
   .content-table td {
     padding:12px 15px;
     text-align: center;
+    
   }
   .content-table tbody tr{
+    background-color: white;
     border-bottom: 1px solid #dddddd;
+    color :grey;
+    font-size: 15px;
   }
   
-  .content-table tbody tr:nth-of-type(even){
-    background-color: #f3f3f3;
-  }
   
   .content-table tbody tr:last-of-type{
     border-bottom:  2px solid rgb(55,78,107);
@@ -37,6 +38,5 @@
     cursor: pointer;
   }
   .content-table tbody tr td i:hover{
-    font-size:20px;
     color:  palevioletred;
   }

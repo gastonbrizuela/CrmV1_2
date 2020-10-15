@@ -12,9 +12,9 @@ const ProgressBar =({stepSelect})=>{
 
     const renderSpet = (stepoption)=>{
         if (stepoption.step <= stepSelect){
-            return(<li className='progress-bar-li-select' >{stepoption.name}</li>)
+            return(<li className='progress-bar-li-select' key={stepoption.name} >{stepoption.name}</li>)
         }else{
-            return(<li className='progress-bar-li' >{stepoption.name}</li>)
+            return(<li className='progress-bar-li' key= {stepoption.name} >{stepoption.name}</li>)
         }
         
     }

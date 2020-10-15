@@ -10,6 +10,14 @@
     padding-left: 40px;
     padding-right: 40px;
     box-sizing: border-box;
+    box-shadow:
+  0 0px 1.2px rgba(0, 0, 0, 0.065),
+  0 0px 3.2px rgba(0, 0, 0, 0.093),
+  0 0px 6.5px rgba(0, 0, 0, 0.115),
+  0 0px 12.3px rgba(0, 0, 0, 0.137),
+  0 0px 23.9px rgba(0, 0, 0, 0.165),
+  0 0px 80px rgba(0, 0, 0, 0.23)
+;
 }
 
 .nav-items{
@@ -20,11 +28,18 @@
     justify-content: space-around;
     color: #EEEEEE;
     cursor: pointer;
+    transition: .3s;
 }
 
 .title-nav-bar{
     color: white;
+    transition: .3s;
+    cursor: pointer;
 }
 .nav-items:hover{
-    color: white;
+    color: rgb(97, 218, 251);
+}
+
+.title-nav-bar:hover{
+    color: rgb(97, 218, 251);
 }

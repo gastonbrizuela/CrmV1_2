@@ -1,5 +1,4 @@
 import React, { Fragment, useState,useEffect } from "react";
-import Title from '../../../components/Title/Title'
 import axios from "axios";
 import { Link } from "react-router-dom";
 import './Tables.css'
@@ -19,10 +18,10 @@ const Tables = ()=>{
 
     const renderCampaign =(camp,index) =>{
         return(
-            <tr key={index}>
+            <tr key={index} className='tr-table-campaign'>
                 <td>{camp.internalId}</td>
                 <td>{camp.Name}</td>
-                <td><Link to={`/main/campaign/${camp.internalId}`}>ver mas</Link></td>
+                <td><Link to={`/campaign/${camp.internalId}`}>ver mas</Link></td>
                 <td></td>
                 <td><i className='fas fa-share'></i></td>
                 <td>ver+</td>
@@ -31,7 +30,6 @@ const Tables = ()=>{
         )
     }
     return (<Fragment>
-            <Title text='Campañas'></Title>
             <table className = "content-table">
                 <thead>
                     <tr>

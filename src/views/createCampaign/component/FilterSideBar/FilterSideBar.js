@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import GenericButton from "../../../../components/GenericButton/GenericButton";
 import InputApp from "../../../../components/Input/InputApp";
 import Title from "../../../../components/Title/Title";
@@ -11,36 +11,33 @@ const FilterSideBar = ({filterlist,handleChangeFilter, filterViewSelect,handleCh
 
     const renderLi = (filter)=>{
         let className = ''
-        let value = 0
         let classNameIcon = ''
-        if (form[filter.code] ==1){
+        if (form[filter.code] ===1){
             className = ' li-filter-add '
-            value = 0
             classNameIcon = 'fas fa-check-circle add-icon'
         }
-        if (form[filter.code] ==0){
+        if (form[filter.code]===0){
             className = ' li-filter '
-            value = 1
 
         }
-        if (filter.code == filterViewSelect){
+        if (filter.code === filterViewSelect){
             className += 'li-filter-selected'
             listParam = filter.listParameter
             selectName = filter.name
         }
             
-        return (<Fragment>
-                <div className='container-row-filter'>
+        return (
+                <div className='container-row-filter' key={filter.code}>
                     <li className={className} key={filter.code} onClick={()=>handleChangeFilter(filter.code)}>{filter.name}</li>
-                    <i class={classNameIcon}></i>
+                    <i className={classNameIcon}></i>
                 </div>
-        </Fragment>)
+       )
     }
     const renderInputs = (inputdata)=>{
         return(
-        <Fragment>
-        <InputApp data={inputdata}  handleChange = {handleChange} form = {form}></InputApp>
-        </Fragment>
+
+        <InputApp data={inputdata}  handleChange = {handleChange} form = {form} key={inputdata.key}></InputApp>
+
         )
     }
     return(<Fragment>
