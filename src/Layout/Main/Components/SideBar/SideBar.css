@@ -3,17 +3,20 @@
     height: 100%;
     width: 100%;
     line-height: 30px;
-    font-size: 15px;
-    color:black;
+    font-size: 14px;
+    color:#606060;
     padding-left: 40px;
     box-sizing: border-box;
     transition: all .4s ease;/* para que haga mas lento el cambio por ej en el hover*/
     cursor: pointer;
+    font-weight: bold;
   }
   
   .sidebar ul li:hover a{
     padding-left: 50px;
     background-color:#ebe6df; /*es como si se moviera un poquito a la izquierda en referencia al paddin anteriro*/
+    color: rgb(11, 83, 228);
+    font-weight: bold;
   }
   
   .li-side-bar-selected{

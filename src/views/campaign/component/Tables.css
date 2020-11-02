@@ -2,17 +2,16 @@
     border-collapse: collapse;
     margin:25px 0;
     font-size: 0.9em;
-    min-width: 400px;
-    width: 90%;
+    width: 100%;
     border-radius: 5px 5px 0 0;
     overflow: hidden;
-    box-shadow: 0 0 20px rgb(0,0,0, 0.15);
   }
   
   .content-table thead tr{
-    background-color: rgb(55,78,107);
-    color: white;
+    background-color: white;
+    color :grey;
     text-align: center;
+    font-size: 16px;
   }
   
   .content-table th,
@@ -29,9 +28,7 @@
   }
   
   
-  .content-table tbody tr:last-of-type{
-    border-bottom:  2px solid rgb(55,78,107);
-  }
+
   
   .content-table tbody tr td i{
     transition: all .3s ease;/* para que haga mas lento el cambio por ej en el hover*/
