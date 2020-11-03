@@ -4,6 +4,8 @@ import Title from "../../components/Title/Title";
 import {optionsValueAppWeb ,filterTriggers,listInput,filterlist ,programationType} from '../../Constant/const'
 import axios from 'axios'
 import './ResumenGral.css'
+import Card from '../../components/Card/Card'
+import TitleCard from '../../components/TitleCard/TitleCard'
 
 const ResumeGral = ({match})=>{
     const [camp,setCam] =useState({})
@@ -11,7 +13,7 @@ const ResumeGral = ({match})=>{
     useEffect(()=>{
         console.log('llega antes del if')
             async function fetchData(){
-                let url = `http://192.168.0.7:5000${match.match.url}`
+                let url = `http://localhost:5000${match.match.url}`
                 console.log(url)
                 axios.get(url)
                .then(res=>{
@@ -66,21 +68,16 @@ const ResumeGral = ({match})=>{
     }
     const renderReturn = ()=>{
         if (typeof(camp) != "undefined"){
-            return(<Fragment>
-                    <div className='resume-container-gral'>
-                    <div className='resume-datail-content-gral'>
-                        <Title text='Definicion'></Title>
-                        {listInput.map(renderDefinition)}
-                    </div>
-                    <div className='resume-datail-content-gral'>
-                        <Title text='Programacion'></Title>
-                        {listProgramation.map(renderDefinition)}
-                    </div>
-                    <div className='resume-datail-content-gral'>
-                        <Title text='Filtros'></Title>
-                        {listFilter.map(renderFilter)}
-                    </div>
-                    </div>
+            return(<Fragment> <div className='resume-container-gral'>
+            <div className='resume-datail-content-gral'>
+                    <Card header ={<TitleCard text = 'Definicion'></TitleCard>}>{listInput.map(renderDefinition)}</Card>
+                        
+                    <Card header ={<TitleCard text = 'Programacion'></TitleCard>}>{listProgramation.map(renderDefinition)}</Card>
+                        
+
+                    <Card header ={<TitleCard text = 'Filtros'></TitleCard>}>{listFilter.map(renderFilter)}</Card>
+                </div>
+                </div>
                 </Fragment>
             )}
     }

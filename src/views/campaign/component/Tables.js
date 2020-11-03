@@ -3,11 +3,11 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import './Tables.css'
 
-const Tables = ()=>{
+const Tables = ({typeSend})=>{
     const [listCamp, setListCamp] = useState([])
 
     useEffect(()=>{
-      axios.get('http://192.168.0.7:5000/api')
+      axios.get('http://localhost:5000/api')
       .then(res=>{
         setListCamp(res.data)
       })
@@ -17,17 +17,21 @@ const Tables = ()=>{
     },[])
 
     const renderCampaign =(camp,index) =>{
-        return(
-            <tr key={index} className='tr-table-campaign'>
-                <td>{camp.internalId}</td>
-                <td>{camp.Name}</td>
-                <td><Link to={`/campaign/${camp.internalId}`}>ver mas</Link></td>
-                <td></td>
-                <td><i className='fas fa-share'></i></td>
-                <td>ver+</td>
-                <td>ver+</td>
-            </tr>
-        )
+        console.log()
+        if (camp.TypeSend == typeSend){
+            return(
+                <tr key={index} className='tr-table-campaign'>
+                    <td>{camp.internalId}</td>
+                    <td>{camp.Name}</td>
+                    <td><Link to={`/campaign/${camp.internalId}`}>ver mas</Link></td>
+                    <td>{camp.Status}</td>
+                    <td><i className='fas fa-share'></i></td>
+                    <td>ver+</td>
+                    <td>ver+</td>
+                </tr>
+            )
+        }
+
     }
     return (<Fragment>
             <table className = "content-table">

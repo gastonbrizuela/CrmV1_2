@@ -1,7 +1,8 @@
 import React, { Fragment} from "react";
 import {filterTriggers,listInput,filterlist ,programationType} from '../../../../Constant/const'
 import LabelDescription from "./Component/LabelDescription/LabelDescription";
-import Title from "../../../../components/Title/Title";
+import Card from "../../../../components/Card/Card"
+import TitleCard from "../../../../components/TitleCard/TitleCard"
 import './Resume.css'
 const Resume = ({form})=>{
 
@@ -36,21 +37,16 @@ const Resume = ({form})=>{
     }
     const renderReturn = ()=>{
 
-            return(<Fragment>
-                    <div className='resume-container'>
-                    <div className='resume-datail-content'>
-                        <Title text='Definicion'></Title>
-                        {listInput.map(renderDefinition)}
-                    </div>
-                    <div className='resume-datail-content'>
-                        <Title text='Programacion'></Title>
-                        {listProgramation.map(renderDefinition)}
-                    </div>
-                    <div className='resume-datail-content'>
-                        <Title text='Filtros'></Title>
-                        {listFilter.map(renderFilter)}
-                    </div>
-                    </div>
+            return(<Fragment> <div className='resume-container-gral'>
+            <div className='resume-datail-content-gral'>
+                    <Card header ={<TitleCard text = 'Definicion'></TitleCard>}>{listInput.map(renderDefinition)}</Card>
+                        
+                    <Card header ={<TitleCard text = 'Programacion'></TitleCard>}>{listProgramation.map(renderDefinition)}</Card>
+                        
+
+                    <Card header ={<TitleCard text = 'Filtros'></TitleCard>}>{listFilter.map(renderFilter)}</Card>
+                </div>
+                </div>
                 </Fragment>
             )
     }

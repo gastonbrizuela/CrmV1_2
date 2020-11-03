@@ -64,6 +64,7 @@ export const listInput = [
     {key:'TypeSend',name:'Tipo de envio',type:'select',options:['Unico envio','Automatizada']},
     {key:'outstanding',name:'Destacado',type:'select',options:['Si','No']},
     {key:'PanelInclude',name:'Incluir en el panel',type:'select',options:['Si','No']},
+    {key:'Status',name:'Estado',type:'select',options:['Activa','Inactiva']},
     {key:'Subject',name:'Asunto',type:'input'},
     {key:'Content',name:'Codigo del template',type:'input'}
 ]

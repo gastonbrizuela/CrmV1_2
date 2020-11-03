@@ -8,14 +8,12 @@
 }
 .resume-datail-content-gral{
     margin-bottom:15px;
-    border: 1px solid #dadce0;
     display: flex;
     flex-direction: column;
-    text-align: center;
     padding: 15px;
     box-sizing: border-box;
-    background-color: white;
     width: 25%;
+    min-width: 300px;
 }
 
 .container-card-filter-gral{

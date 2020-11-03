@@ -24,6 +24,8 @@
 .card-content{
     padding-right: 20px;
     padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px
 }
 .title-card{
     color:rgb(11, 83, 228);

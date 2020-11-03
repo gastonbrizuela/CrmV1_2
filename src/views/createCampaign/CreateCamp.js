@@ -147,7 +147,7 @@ const CreateCamp = ()=>{
                     listOtionsValueOpenOrange.forEach((element)=>{
                         returnfor[element[0]] = element[1][returnfor[element[0]]]
                     })
-                    axios.post('http://192.168.0.7:5000/api', returnfor)
+                    axios.post('http://localhost:5000/api', returnfor)
                     .then(response => {
                         console.log(response)
                         handleChangeSaveCamp()
