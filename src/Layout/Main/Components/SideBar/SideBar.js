@@ -6,7 +6,7 @@ const SideBar = ()=>{
     const ButtonsAction = [
         {name:'Campaña',classN:'fas fa-folder-open' ,key:'campaign', link:'/campaign'},
         {name:'Crear Campaña',classN:'fas fa-folder-plus', key:'createCampaign',link:'/createcamp'},
-        {name:'Agregar Template',classN:'fas fa-file-code', key:'createTample',link:'/main/createtample'}
+        {name:'Agregar Template',classN:'fas fa-file-code', key:'createTample',link:'/createtample'}
     ]
     const renderButtons =(button,index) =>{
         let classn = ''
