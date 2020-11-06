@@ -6,7 +6,8 @@ const ProgressBar =({stepSelect})=>{
         {step:1,name:'1-Definicion de campaña'},
         {step:2,name:'2-Filtro'},
         {step:3,name:'3-Programacion'},
-        {step:4,name:'4-Resumen'},
+        {step:4, name:'4-Template'},
+        {step:5,name:'5-Resumen'}
         
     ]
 

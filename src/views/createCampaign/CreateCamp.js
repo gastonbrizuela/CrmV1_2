@@ -2,13 +2,14 @@ import React, { Fragment, useState } from "react";
 import Input from "../../components/Input/InputApp"
 import axios from 'axios'
 import { Redirect } from "react-router-dom";
-import {optionsValueOpenOrange ,filterTriggers,listInput,filterlist ,programationType} from '../../Constant/const'
+import {optionsValueOpenOrange ,filterTriggers,listInput,filterlist ,programationType,extraAtribute} from '../../Constant/const'
 import Title from "../../components/Title/Title";
 import ProgressBar from "./component/ProgressBar/ProgressBar";
 import ButtonsProgressBar from "./component/ButtonProgressBar/ButtonsProgressbar";
 import FilterSideBar from "./component/FilterSideBar/FilterSideBar";
 import Resume from "./component/Resume/Resume";
 import CheckButton from "./component/CheckButton/CheckButton";
+import CreateTemplate from "../CreateTemplate/CreateTemplate"
 import './CreateCamp.css'
 
 
@@ -22,6 +23,9 @@ const CreateCamp = ()=>{
             if (intp.type=== 'select'){
                 contentForm[intp.key]= intp.options[0]
             }
+        })
+        extraAtribute.forEach((atribute)=>{
+            contentForm[atribute]=''
         })
         filterlist.forEach ((filter)=>{
             contentForm[filter.code]=0;
@@ -139,7 +143,7 @@ const CreateCamp = ()=>{
             setSteptSelect(stepSelect-1)
         }
         if (e ==='mas'){
-            if (stepSelect===4){
+            if (stepSelect===5){
                 setSteptSelect(stepSelect+1)
                 setTimeout(() => {      
                     let returnfor = form
@@ -228,14 +232,17 @@ const CreateCamp = ()=>{
             </div>
         </div>)}
         if (stepSelect === 4){
-            return( <Resume form={form}></Resume>)
+            return( <CreateTemplate form={form} keyAtr={'Content'} handleChange={handleChange}></CreateTemplate>)
         }
-        if(stepSelect===5){
+        if (stepSelect ===5){
+            return(<Resume form={form}></Resume>)
+        }
+        if(stepSelect===6){
             return(<div className='content-check'>
             <CheckButton checkSaveCamp={checkSaveCamp} text='La Campaña se guardo correctamente'></CheckButton>
             </div>)
         }
-        if(stepSelect===6){
+        if(stepSelect===7){
             return(<Redirect to='/campaign'></Redirect>)
         }
     }

@@ -11,7 +11,7 @@
   }
   .progress-bar-li {
     background-color: #f9f9f9;
-    width: 300px;
+    width: 250px;
     font-size: 20px;
     margin: 10px;
     padding: 10px;
@@ -21,7 +21,7 @@
   .progress-bar-li-select{
     background-color:  rgb(55,78,107);
     color: white;
-    width: 300px;
+    width: 250px;
     font-size: 20px;
     margin: 10px;
     padding: 10px;

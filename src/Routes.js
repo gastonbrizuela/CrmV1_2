@@ -8,7 +8,6 @@ import CreateCamp from './views/createCampaign/CreateCamp';
 import NotFound from './views/notFound/NotFound';
 import ResumeGral from './views/ResumeGral/ResumeGral';
 import CreateTemplate from './views/CreateTemplate/CreateTemplate'
-import PreviewHtml from './components/PreviewHtml/PreviewHtml'
 
 
 const Routes =()=>{
@@ -41,12 +40,6 @@ const Routes =()=>{
                     path="/createtample"
                     layout = {Main}
                     component = {CreateTemplate}
-                    />
-                    <RouteWithLayout
-                    exact
-                    path="/preview"
-                    layout = {Minimal}
-                    component = {PreviewHtml}
                     />
                     <RouteWithLayout
                     exact

@@ -104,3 +104,5 @@ export const filterlist =[
     listParameter:[{key:'InvalidEmail',name:'Email',type:'select',options:['Si','No']},{key:'InvalidPhone',name:'Telefono',type:'select', options:['Si','No']}]},
 {code:'CheckPoints',name:'Puntos', 
     listParameter:[{key:'MinAmountPoint',name:'Minimo',type:'number'},{key:'MaxAmountPoint',name:'Maximo',type:'number'}]}]
+
+export const extraAtribute = ['Content']
