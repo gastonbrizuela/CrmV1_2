@@ -151,6 +151,7 @@ const CreateCamp = ()=>{
                     listOtionsValueOpenOrange.forEach((element)=>{
                         returnfor[element[0]] = element[1][returnfor[element[0]]]
                     })
+                    console.log(returnfor)
                     axios.post('http://localhost:5000/api', returnfor)
                     .then(response => {
                         console.log(response)

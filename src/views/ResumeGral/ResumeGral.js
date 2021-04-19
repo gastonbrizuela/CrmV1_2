@@ -52,6 +52,9 @@ const ResumeGral = ({match})=>{
     }
 
     const renderDefinition =(input)=>{
+        if (input.key === 'Content'){
+            return ''
+        }
             return(<div className='input-description-con'>
             <LabelDescription label={input.name} description={camp[input.key]}></LabelDescription>
             </div>)
@@ -66,16 +69,17 @@ const ResumeGral = ({match})=>{
             
         }
     }
+    const renderTemplate = ()=>{
+        return (<iframe className ='tample-preview' id='15' name = {15} sandbox="allow-same-origin" srcDoc={camp['Content']}></iframe>)
+     }
     const renderReturn = ()=>{
         if (typeof(camp) != "undefined"){
             return(<Fragment> <div className='resume-container-gral'>
             <div className='resume-datail-content-gral'>
                     <Card header ={<TitleCard text = 'Definicion'></TitleCard>}>{listInput.map(renderDefinition)}</Card>
-                        
                     <Card header ={<TitleCard text = 'Programacion'></TitleCard>}>{listProgramation.map(renderDefinition)}</Card>
-                        
-
                     <Card header ={<TitleCard text = 'Filtros'></TitleCard>}>{listFilter.map(renderFilter)}</Card>
+                    <Card header ={<TitleCard text = 'Template'></TitleCard>}>{renderTemplate()}</Card>
                 </div>
                 </div>
                 </Fragment>

@@ -10,7 +10,8 @@ export const optionsValueOpenOrange = {
     ActiveStatusInCampaign:{'Activo':1, 'Inactivo':0},
     CheckIfPurchase:{'Compro':1, 'No compro':0},
     InvalidEmail:{'Si':1,'No':0},
-    InvalidPhone:{'Si':1,'No':0}
+    InvalidPhone:{'Si':1,'No':0},
+    Status:{'Activa':1,'Inactiva':1}
 }
 
 export const optionsValueAppWeb = {
@@ -25,7 +26,8 @@ export const optionsValueAppWeb = {
     ActiveStatusInCampaign:{1:'Activo',0 :'Inactivo'},
     CheckIfPurchase:{1:'Compro', 0:'No compro'},
     InvalidEmail:{1:'Si',0:'No'},
-    InvalidPhone:{1:'Si',0:'No'}
+    InvalidPhone:{1:'Si',0:'No'},
+    Status:{1:'Activa',2:'Inactiva'}
 }
 
 
