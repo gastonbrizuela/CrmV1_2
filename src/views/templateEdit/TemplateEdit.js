@@ -13,13 +13,13 @@ const TemplateEdit = ()=>{
         .catch(err =>{
             console.log(err)
         })
-    })
+    },[])
     const renderTemplate = (template)=>{
+        console.log(`http://localhost:5000/image_template/${template.IdImage}.png`)
         return (<div className='content-card'>
                     <Card>
                         <div className = 'content-card-template'>
-                        <iframe className ='tample-preview' id='15' name = {15} sandbox="allow-same-origin" srcDoc={template.nombre} 
-                        frameBorder="0"></iframe>
+                            <img src={`http://localhost:5000/image_template/${template.IdImage}.png`}></img>
                         </div>
                     </Card>
                 </div>

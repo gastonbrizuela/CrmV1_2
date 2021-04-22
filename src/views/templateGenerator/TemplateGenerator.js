@@ -25,7 +25,8 @@ const TemplateGenerator = (props) => {
 
   const jsonTemplate =(html) =>{
     const templatejs = {
-      nombre : html
+      Html : html,
+      nombre: 'gaston',
     }
     return templatejs
   }
