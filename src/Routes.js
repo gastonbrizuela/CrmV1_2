@@ -8,6 +8,8 @@ import CreateCamp from './views/createCampaign/CreateCamp';
 import NotFound from './views/notFound/NotFound';
 import ResumeGral from './views/ResumeGral/ResumeGral';
 import CreateTemplate from './views/CreateTemplate/CreateTemplate'
+import TemplateGenerator from './views/templateGenerator/TemplateGenerator'
+import TemplateEdit from './views/templateEdit/TemplateEdit'
 
 
 const Routes =()=>{
@@ -37,9 +39,15 @@ const Routes =()=>{
                     />
                     <RouteWithLayout
                     exact
-                    path="/createtample"
+                    path="/template_generator"
                     layout = {Main}
-                    component = {CreateTemplate}
+                    component = {TemplateGenerator}
+                    />
+                    <RouteWithLayout
+                    exact
+                    path="/template_edit"
+                    layout = {Main}
+                    component = {TemplateEdit}
                     />
                     <RouteWithLayout
                     exact
@@ -47,6 +55,7 @@ const Routes =()=>{
                     layout = {Minimal}
                     component = {NotFound}
                     />
+
                 <Redirect to="/not-found" />
             </Switch>)
 }

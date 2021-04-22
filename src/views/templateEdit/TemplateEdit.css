@@ -1,0 +1,18 @@
+.content-card-template{
+    background-color: red;
+    width:500px;
+    height: 600px;
+}
+
+.edit-template{
+    display: flex;
+    width: 100%;
+    background-color: blue;
+}
+
+.tample-preview{
+    background-color:slateblue;}
+
+.content-card{
+
+}
