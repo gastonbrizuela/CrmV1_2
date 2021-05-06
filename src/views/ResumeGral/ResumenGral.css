@@ -1,20 +1,13 @@
 .resume-container-gral{
     width: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
     align-items: center;
     margin-top: 20px;
+    justify-content: center;
+    background-color: tomato;
 }
-.resume-datail-content-gral{
-    margin-bottom:15px;
-    display: flex;
-    flex-direction: column;
-    padding: 15px;
-    box-sizing: border-box;
-    width: 25%;
-    min-width: 300px;
-}
+
 
 .container-card-filter-gral{
     margin-bottom:15px;

@@ -1,13 +1,12 @@
 .principal-loyout{
     display: grid;
-    width: 100%;
     grid-template-columns: 240px 1fr;
-    grid-row: auto;
   }
 
   .content-main{
     display: flex;
     flex-direction: column;
     background-color:#EEEEEE;
+    padding:5px 10px 0 10px;
   }
 

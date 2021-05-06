@@ -1,20 +1,22 @@
 .buttons-progress-bar-container{
     display: flex;
     align-items: center;
-    justify-content: center;
     width: 100%;
-    margin:10px
+    margin:10px;
+    justify-content: center;
   }
 
 
-  .prueba{
-    text-align: center;
-    background-color: forestgreen;
-  }
   .button-step{
     font-size: 40px;
     cursor: pointer;
   }
   .button-step:hover{
     color: palevioletred
+  }
+
+  .generic-button-conteiner{
+  width: 100px;
+  height: 40px;
+  padding: 5px;
   }

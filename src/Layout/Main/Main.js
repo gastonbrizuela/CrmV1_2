@@ -5,8 +5,9 @@ import './Main.css'
 
 const Main = ({children,match})=>{
 
-    return (<Fragment><NavBar></NavBar>
-    <div className='principal-loyout'>
+    return (    <div className='main'>
+                <NavBar></NavBar>
+                <div className='principal-loyout'>
                 <SideBar match= {match}></SideBar>
 
                 <div className='content-main'>
@@ -15,7 +16,7 @@ const Main = ({children,match})=>{
                 </div>
                 
             </div>
-            </Fragment>
+            </div>
             
     )
 }

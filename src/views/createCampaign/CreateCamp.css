@@ -4,11 +4,26 @@
     text-align: center;
     width: 100%;
     padding: 10px;
-    background-color:#EEEEEE;
+    background-color:white;
     box-sizing: border-box;
+    border-bottom:solid 1px rgb(185, 185, 185);
   }
 
   .content-campaign{
     width:100%;
     background-color: blue;
   }
+
+.definition-container{
+
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    gap: 25px;
+    padding:25px;
+    box-sizing: border-box  ;
+
+}
+.simple-card-create-camp{
+  background-color: white;  
+}
+

@@ -1,10 +1,10 @@
 .resume-container{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(350px,1fr));
+    gap: 25px;
+    margin: 0 0 25px;
+    padding: 10px;
+
 }
 .resume-datail-content{
     margin-bottom:15px;
@@ -26,4 +26,8 @@
     flex-direction: column;
     background-color: white;
     padding: 5px;
+}
+
+.tample-preview{
+    min-height: 400px;
 }

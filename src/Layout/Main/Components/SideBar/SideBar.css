@@ -14,8 +14,8 @@
   
   .sidebar ul li:hover a{
     padding-left: 50px;
-    background-color:#ebe6df; /*es como si se moviera un poquito a la izquierda en referencia al paddin anteriro*/
-    color: rgb(11, 83, 228);
+    color:white;
+    background-color: rgb(41, 128, 185);
     font-weight: bold;
   }
   

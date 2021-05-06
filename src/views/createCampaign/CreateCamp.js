@@ -11,11 +11,13 @@ import Resume from "./component/Resume/Resume";
 import CheckButton from "./component/CheckButton/CheckButton";
 import CreateTemplate from "../CreateTemplate/CreateTemplate"
 import './CreateCamp.css'
+import ButtonTypeCamp from "./component/ButtonTypeCamp/ButtonTypeCamp";
+import PrincipalTitle from "../../components/PrincipalTitle/PrincipalTitle";
 
 
 
 const CreateCamp = ()=>{
-
+        
         const createContentForm= ()=>{
         var contentForm = {};
         listInput.forEach((intp)=>{
@@ -175,7 +177,8 @@ const CreateCamp = ()=>{
 
     const renderContend = ()=>{
         if (stepSelect === 1){
-           return( <div className='card'>
+           return( <div className='definition-container'>
+            <div><ButtonTypeCamp></ButtonTypeCamp></div>
             <div className='box-form'>
                 <div className='container-param-filter'>
                 {listInput.map(renderInputs)}
@@ -186,8 +189,8 @@ const CreateCamp = ()=>{
 
         if (stepSelect===2){
             if (form.TypeSend === 'Unico envio'){
-                return(<div className='card'>
-                <div className='box-form-filter'>
+                return(<div className='definition-container'>
+                
                     <FilterSideBar  
                         filterlist = {filterlist}
                         handleChangeFilter = {handleChangeFilter}
@@ -196,12 +199,12 @@ const CreateCamp = ()=>{
                         handleChangeFilterAdd = {handleChangeFilterAdd} 
                         form={form}>
                     </FilterSideBar>
-                </div>
+
             </div>)
             }
             if (form.TypeSend === 'Automatizada'){
-                return(<div className='card'>
-                <div className='box-form-filter'>
+                return(<div className='definition-container'>
+
                     <FilterSideBar  
                         filterlist = {filterTriggers}
                         handleChangeFilter = {handleChangeFilter}
@@ -210,7 +213,6 @@ const CreateCamp = ()=>{
                         handleChangeFilterAdd = {handleChangeFilterAdd} 
                         form={form}>
                     </FilterSideBar>
-                </div>
             </div>)
             }
         }
@@ -224,7 +226,7 @@ const CreateCamp = ()=>{
                 list=programationType[2][form.TypeProgrammSend]
             }
             return(
-            <div className='card'>
+            <div className='definition-container'>
                 <div className='box-form-filter'>
                 <div className='container-param-filter'>
                     <Title text={text}></Title>
@@ -233,7 +235,7 @@ const CreateCamp = ()=>{
             </div>
         </div>)}
         if (stepSelect === 4){
-            return( <CreateTemplate form={form} keyAtr={'Content'} handleChange={handleChange}></CreateTemplate>)
+            return( <CreateTemplate handleChange={handleChange} setSteptSelect = {setSteptSelect}></CreateTemplate>)
         }
         if (stepSelect ===5){
             return(<Resume form={form}></Resume>)
@@ -249,6 +251,9 @@ const CreateCamp = ()=>{
     }
 
     const renderInputs = (inputdata)=>{
+        if (inputdata.key === 'Content'){
+            return
+        }
         return(
         <Input data={inputdata}  handleChange = {handleChange} form = {form} key={inputdata.key}></Input>
         )
@@ -258,11 +263,15 @@ const CreateCamp = ()=>{
 
     return (
         <Fragment>
+                <PrincipalTitle title = 'Generador de campaña'></PrincipalTitle>
+                <div className='simple-card-create-camp'>
                 <div className='head-progress'>
                 <ProgressBar stepSelect= {stepSelect}></ProgressBar>
                 <ButtonsProgressBar handleChangeStep={handleChangeStep} step = {stepSelect}></ButtonsProgressBar>
                 </div>
                 {renderContend()}
+                </div>
+                
         </Fragment>
     );
 };

@@ -5,7 +5,7 @@ const Card = ({children, header})=>{
         <div className='card-container'>
             <div className='card-header'>
                 <div className='title-card'>
-                {header}
+                    {header}
                 </div>
             </div>                
             <div className= 'card-content'>

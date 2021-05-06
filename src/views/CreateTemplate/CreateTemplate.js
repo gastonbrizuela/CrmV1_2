@@ -1,31 +1,58 @@
-import React, { Fragment, useState } from 'react'
-import TextArea from '../../components/TextArea/TextArea'
+import Axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { Fragment } from 'react'
+import Card from '../../components/Card/Card'
 import GenericButton from '../../components/GenericButton/GenericButton'
+import TitleCard from '../../components/TitleCard/TitleCard'
 import './CreateTemplate.css'
 
-const CreateTemplate = ({form, keyAtr ,handleChange})=>{
-    
-    const [preview, setPreview] = useState('')
-    const handlePreviewTemplate  = (e)=>{
-      if (e.target.value ==='Preview'){
-        setPreview(form['Content'])
-      }
-    }
-    return (<Fragment>
-                <div className='create-template-container'>
-                    <div className = 'text-area-container'>
-                        <TextArea keyAtr={keyAtr} form={form} handleChange={handleChange}></TextArea>
-                    </div>
-                    <div className = 'template-button-container'>
-                        <GenericButton text='Preview' onCl={handlePreviewTemplate}></GenericButton>
-                        <GenericButton text ='Agregar'></GenericButton>
-                    </div>  
-                    <div className= 'tample-preview-container'>
-                  <iframe className ='tample-preview' id='15' name = {15} sandbox="allow-same-origin" srcDoc={preview}></iframe>
-                </div>
-                </div>
+const CreateTemplate = ({handleChange, setSteptSelect})=>{
+  const [listTemplate, setListTemplate] = useState([])
+  useEffect(()=>{
+      Axios.get('http://localhost:5000/template')
+      .then(res =>{
+          setListTemplate(res.data)
+      })
+      .catch(err =>{
+          console.log(err)
+      })
+  },[])
+  const renderTemplate = (template)=>{
+      const mystyle = {
+          backgroundImage:`url(http://localhost:5000/image_template/${template.IdImage}.png)`,
+          backgroundColor: "DodgerBlue",
+          height:"100%",
+          with:"100%",
+          backgroundRepeat: "no-repeat",
+          backgroundSize:"cover",
+        };
+      const addContent = (templateHtml)=>{
+        handleChange({'target':{'name':'Content','value':templateHtml}})
+        setSteptSelect(5)
 
-            </Fragment>)
+      }
+
+      
+      return (<div className='content-card-template'>
+                  <Card header={<TitleCard text = {template.Nombre}></TitleCard>}>
+                      <Fragment>
+                      <div className='content-template'>
+                          <div style ={mystyle}>
+                              <div className='button-container-template'>
+                                <div><GenericButton text='Aceptar' onCl = {()=>addContent(template.Html)}></GenericButton></div>
+                                <div><GenericButton text='Preview'></GenericButton></div>
+                              </div>
+                          </div>
+                      </div>
+                      </Fragment>
+                  </Card>
+              </div>
+              )
+  }
+  return (
+          <div className='edit-template'>
+          {listTemplate.map(renderTemplate)}
+          </div>)
 }
 
 export default CreateTemplate 

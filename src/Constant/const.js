@@ -54,11 +54,11 @@ export const programationType = {1:[{key:'DateToSend',name:'Dia del envio',type:
 export const filterTriggers = [{code:'ChargeDate',name:'Fecha carga',
 listParameter: [{key:'Lapse',name:'Lapso',type:'number'},{key:'TypeProgrammSend', name:'Tipo de lapso', type:'select', options:['Diaria','Semanal','Mensual','Campaña']}]},
 {code:'DateAppDownload',name:'Fecha Descarga App',
-    listParameter:[{key:'Lapse',name:'Lapso',type:'number'}]},
+    listParameter:[{key:'Lapse',name:'Lapso',type:'number'},{key:'TypeProgrammSend', name:'Tipo de lapso', type:'select', options:['Diaria','Semanal','Mensual','Campaña']}]},
 {code:'CheckPurchaseItem',name:'Compra del articulo',
-    listParameter:[{key:'Lapse',name:'lapso',type:'number'},{key:'PurchaseItem',name:'Articulo',type:'text'}]},
+    listParameter:[{key:'Lapse',name:'lapso',type:'number'},{key:'PurchaseItem',name:'Articulo',type:'text'},{key:'TypeProgrammSend', name:'Tipo de lapso', type:'select', options:['Diaria','Semanal','Mensual','Campaña']}]},
 {code:'ConsumePeriodAverage',name:'Consumo promedio',
-    listParameter:[{key:'Lapse',name:'lapso',type:'number'}]}]
+    listParameter:[{key:'Lapse',name:'lapso',type:'number'},{key:'TypeProgrammSend', name:'Tipo de lapso', type:'select', options:['Diaria','Semanal','Mensual','Campaña']}]}]
 
 export const listInput = [
     {key:'Name',name:'Nombre',type:'input',},

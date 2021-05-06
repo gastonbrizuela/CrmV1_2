@@ -1,9 +1,102 @@
 .view-campaign-container{
+    display: grid;
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    box-sizing: border-box;
+    grid-template-columns: 5fr 1fr;
+    gap: 25px;
+    margin: 0 0 25px;
+    background-color: white;
+    padding: 15px;
+
 }
 .campaign-container{
-    width: 50%;
+    width: 100%;
+
+}
+
+.type-campaign-button{
+    font-size:18px;
+    transition: 0.1s;
+    margin-right: 5px;
+
+}
+
+.type-campaign-button-container{
+    display: flex;
+    cursor:pointer;
+
+}
+
+.side-detail{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1px;
+    background-color:white;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    box-sizing: border-box;
+    padding: 30px 30px 30px 30px;
+    border-radius: 10px;
+
+    
+}
+
+
+.simple-card{
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    background-color: white;
+    box-sizing: border-box;
+    padding: 5px 35px 5px 35px;
+    border-radius: 10px;
+}
+
+.side-detail-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.icon-conteriner-campaign{
+    position: relative;
+    display: block;
+    height: 50px;
+    width: 50px;
+    font-size: 20px;
+    line-height: 50px;
+
+    cursor: pointer;
+    border-radius: 50%;
+    margin: 0;
+
+}
+.chart-conteiner{
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.mail{
+    color:#5B2C6F;
+    background-color: #E8DAEF;
+}
+.sms{
+    color:#3498DB ;
+    background-color: #D6EAF8;
+}
+
+.app{
+    color:#E67E22 ;
+    background-color: #FDEBD0 ;
+}
+
+.selected{
+    color:white;
+    border-bottom: solid 1px white;
+}
+
+.principal-title-container{
+    grid-column: 1 / 3;
+
+}
+.titles-side-detail-container{
+    text-align: left;
 }

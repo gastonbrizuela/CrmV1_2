@@ -44,6 +44,7 @@ const Tables = ({typeSend})=>{
 
     }
     return (<Fragment>
+            <div className = 'content-table-detail'>
             <table className = "content-table">
                 <thead>
                     <tr>
@@ -60,6 +61,7 @@ const Tables = ({typeSend})=>{
                 {listCamp.map(renderCampaign)}
                 </tbody>
             </table>
+            </div>
             </Fragment>
     );
 };

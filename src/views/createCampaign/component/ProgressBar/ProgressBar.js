@@ -3,7 +3,7 @@ import './ProgressBar.css'
 
 const ProgressBar =({stepSelect})=>{
     const listBarSteps = [
-        {step:1,name:'1-Definicion de campaña'},
+        {step:1,name:'1-Definicion'},
         {step:2,name:'2-Filtro'},
         {step:3,name:'3-Programacion'},
         {step:4, name:'4-Template'},

@@ -43,13 +43,23 @@ const Resume = ({form})=>{
     }
     const renderReturn = ()=>{
 
-            return(<Fragment> <div className='resume-container-gral'>
-            <div className='resume-datail-content-gral'>
-                    <Card header ={<TitleCard text = 'Definicion'></TitleCard>}>{listInput.map(renderDefinition)}</Card>
-                    <Card header ={<TitleCard text = 'Programacion'></TitleCard>}>{listProgramation.map(renderDefinition)}</Card>   
-                    <Card header ={<TitleCard text = 'Filtros'></TitleCard>}>{listFilter.map(renderFilter)}</Card>
-                    <Card header ={<TitleCard text = 'Template'></TitleCard>}>{renderTemplate()}</Card>
-                </div>
+            return(<Fragment> <div className='resume-container'>
+                    <Card header ={<TitleCard text = 'Definicion'></TitleCard>}>
+                        <div>
+                            {listInput.map(renderDefinition)}
+                        </div>
+                        </Card>
+                    <Card header ={<TitleCard text = 'Programacion'></TitleCard>}>
+                        <div>
+                            {listProgramation.map(renderDefinition)}
+                        </div>
+                        </Card>   
+                    <Card header ={<TitleCard text = 'Filtros'></TitleCard>}>
+                        <div>
+                            {listFilter.map(renderFilter)}
+                        </div>
+                        </Card>
+                            <Card header ={<TitleCard text = 'Template'></TitleCard>}>{renderTemplate()}</Card>
                 </div>
                 </Fragment>
             )
