@@ -10,6 +10,7 @@ import ResumeGral from './views/ResumeGral/ResumeGral';
 import CreateTemplate from './views/CreateTemplate/CreateTemplate'
 import TemplateGenerator from './views/templateGenerator/TemplateGenerator'
 import TemplateEdit from './views/templateEdit/TemplateEdit'
+import Segment from './views/segment/Segment.js'
 
 
 const Routes =()=>{
@@ -36,6 +37,12 @@ const Routes =()=>{
                     path="/campaign/:id"
                     layout = {Main}
                     component = {ResumeGral}
+                    />
+                    <RouteWithLayout
+                    exact
+                    path="/segment"
+                    layout = {Main}
+                    component = {Segment}
                     />
                     <RouteWithLayout
                     exact

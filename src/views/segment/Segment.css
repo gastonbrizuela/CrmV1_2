@@ -1,0 +1,38 @@
+.segment-conteiner{
+    display: grid;
+  
+    grid-template-columns: 2fr 8fr;
+    
+}
+.side-bar-segment-container{
+
+    display: grid;
+    grid-template-columns: 6fr 1fr;
+    gap: 20px;
+}
+.segment-button-filter{
+    height: 30px;
+
+}
+.segment-button-save{
+    height: 30px;
+
+}
+
+.customer-detail-conteiner{
+
+}
+.segment-filter-side{
+    padding: 15px 0px 15px 0px;
+    max-height: 600px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background-color: white;
+    grid: 1,3;
+    display: block;
+    float: left;
+    min-height: 28px;
+    box-sizing: border-box;
+    line-height: 18px;
+    font-family: 'Open Sans',sans-serif;
+}

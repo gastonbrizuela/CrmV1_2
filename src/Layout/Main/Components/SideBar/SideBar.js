@@ -4,6 +4,7 @@ import './SideBar.css'
 const SideBar = ()=>{
 
     const ButtonsAction = [
+        {name:'Segmentos',classN:'fas fa-users' ,key:'segment', link:'/segment'},
         {name:'Campaña',classN:'fas fa-folder-open' ,key:'campaign', link:'/campaign'},
         {name:'Crear Campaña',classN:'fas fa-folder-plus', key:'createCampaign',link:'/createcamp'},
         {name:'Generar Template',classN:'fas fa-file-code', key:'TemplateGenerator',link:'/template_generator'},
