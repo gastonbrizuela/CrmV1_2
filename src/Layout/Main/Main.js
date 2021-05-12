@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import NavBar from './Components/NavBar/NavBar'
 import SideBar from './Components/SideBar/SideBar'
 import './Main.css'

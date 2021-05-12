@@ -1,7 +1,6 @@
 .card-container{
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
     background-color: white;
-    border-radius: 5px;
     width: 100%;
 
 
@@ -9,12 +8,12 @@
 
 .card-header{
     display: flex;
-    color:white;
-    background-color: rgb(41, 128, 185);
-    border-radius: 5px 5px 0 0;
+    color: #555;
     height: 50px;
     padding-left: 20px;
     align-items: center;
+    border-bottom: solid 0.5px grey;
+    text-shadow: 0 1px rgb(214, 209, 209);
 }
 
 .card-content{
@@ -26,7 +25,7 @@
 
 }
 .title-card{    
-    font-size: 16px;
+    font-size: 20px;
     font-weight: bold;
     -moz-user-select: none; 
     -webkit-user-select: none;

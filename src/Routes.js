@@ -7,10 +7,10 @@ import Campaign from './views/campaign/Campaign';
 import CreateCamp from './views/createCampaign/CreateCamp';
 import NotFound from './views/notFound/NotFound';
 import ResumeGral from './views/ResumeGral/ResumeGral';
-import CreateTemplate from './views/CreateTemplate/CreateTemplate'
 import TemplateGenerator from './views/templateGenerator/TemplateGenerator'
 import TemplateEdit from './views/templateEdit/TemplateEdit'
 import Segment from './views/segment/Segment.js'
+import CustomerDetail from './views/CustomerDetail/CustomerDetail.js'
 
 
 const Routes =()=>{
@@ -37,6 +37,12 @@ const Routes =()=>{
                     path="/campaign/:id"
                     layout = {Main}
                     component = {ResumeGral}
+                    />
+                    <RouteWithLayout
+                    exact
+                    path="/customer/:id"
+                    layout = {Main}
+                    component = {CustomerDetail}
                     />
                     <RouteWithLayout
                     exact

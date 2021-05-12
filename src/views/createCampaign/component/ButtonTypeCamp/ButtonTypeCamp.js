@@ -1,5 +1,4 @@
 import React from 'react'
-import { Fragment } from 'react'
 import TitleCard from '../../../../components/TitleCard/TitleCard'
 import './ButtonTypeCamp.css'
 

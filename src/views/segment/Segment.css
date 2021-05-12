@@ -1,6 +1,6 @@
 .segment-conteiner{
     display: grid;
-  
+    gap:10px;
     grid-template-columns: 2fr 8fr;
     
 }
@@ -33,4 +33,30 @@
     min-height: 28px;
     box-sizing: border-box;
     grid-column: 1/3;
+}
+
+.search-segment{
+    color: #555;
+    padding: 4px;
+}
+.search-container{
+    display: flex;
+    flex-direction: row;
+}
+.button-search-container{
+    margin-left: 10px;
+}
+.page-controller-conteiner{
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    justify-content: space-between ;
+    width: 200px;
+}
+.botton-table{
+display: flex;
+justify-content: center;
+}
+.button-segment-pagetable{
+    width: 50px;
 }

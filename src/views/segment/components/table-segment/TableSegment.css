@@ -1,0 +1,12 @@
+.table-conteiner table{
+    width: 100%;
+    border: solid 1px rebeccapurple;
+    border-collapse: collapse;
+}
+
+.table-conteiner td, th {
+  border: 1px solid #999;
+  padding: 0.5rem;
+  text-align: left;
+}
+

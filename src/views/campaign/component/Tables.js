@@ -10,6 +10,7 @@ const Tables = ({typeSend})=>{
     useEffect(()=>{
       axios.get('http://localhost:5000/api')
       .then(res=>{
+        console.log(res.data)
         setListCamp(res.data)
         setReloadCampaig(0)
       })
