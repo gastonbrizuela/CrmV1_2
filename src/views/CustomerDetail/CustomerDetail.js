@@ -7,7 +7,7 @@ import PrincipalTitle from '../../components/PrincipalTitle/PrincipalTitle'
 import axios from 'axios'
 
 const CustomerDetail = ({match})=>{
-    const dicPrueba = [{ Name: '-',
+    const dicPrueba = {dataCustomer:{ Name: '-',
                         Code: '-',
                         Email: '-',
                         Phone: '-',
@@ -17,23 +17,11 @@ const CustomerDetail = ({match})=>{
                         Birthdate: '-',
                         Sex: '-'
     },
-    {
-        ticketPromedio:['Ticket Promedio', '-'],
-        precioPromedio:['Precio Promedio por producto', '-'],
-        
-
-    },
-    {
-    ticketPromedio:['Revenue Total', '-'],
-    precioPromedio:['Margen Total', '-'],
-    ultimaCompra: ['Cantidad De Tickets', '-']
-
-    },{
-    ticketPromedio:['Renueve (12 Meses)', '-'],
-    precioPromedio:['Margen (12 Meses)', '-'],
-    ultimaCompra: ['Cantidad de tickets (12 Meses)', 'Hace un año']
-
-    }]
+    dataCards:
+    [{ticketPromedio:['Ticket Promedio', '-'],precioPromedio:['Precio Promedio por producto', '-']},
+    {ticketPromedio:['Revenue Total', '-'],precioPromedio:['Margen Total', '-'],ultimaCompra: ['Cantidad De Tickets', '-']},
+    {ticketPromedio:['Renueve (12 Meses)', '-'],precioPromedio:['Margen (12 Meses)', '-'],ultimaCompra: ['Cantidad de tickets (12 Meses)', 'Hace un año']}
+    ]}
     const dicParameterCustomer = {
                         Code: 'Documento',
                         Email: 'Email',
@@ -52,9 +40,6 @@ const CustomerDetail = ({match})=>{
 
     }
 
-    const firstCardItems = ['avgtotal','maxtransdate']
-    const secondCardItems = ['sumtotal','counttotal']
-    const thirdCardItems = ['sumtotalyear','counttotalyear']
     const [customer,setCustomer] =useState(dicPrueba)
     
     useEffect(()=>{
@@ -64,7 +49,7 @@ const CustomerDetail = ({match})=>{
                 axios.get(url,{cancelToken:sourse.token})
                .then(res=>{
                    console.log(res.data)
-                   setCustomer(dicPrueba)
+                   setCustomer(res.data)
                    })
                .catch(err=>{
                    console.log(err)
@@ -78,13 +63,13 @@ const CustomerDetail = ({match})=>{
        
     },[])
 
-    const listKeys = Object.keys(dicPrueba[0])
+    const listKeys = Object.keys(dicPrueba['dataCustomer'])
     const renderDl = (key)=>{
         console.log(key)
         if (key ==='Name'){
             return
         }
-        var value = customer[0][key]
+        var value = customer['dataCustomer'][key]
         if (value===null){
             value = 'Sin Dato'
         }
@@ -98,6 +83,10 @@ const CustomerDetail = ({match})=>{
                     </dd>
                 </dl>
         )
+    }
+    const renderTopCard =(info)=>{
+        return (<CardSegment dic= {info}></CardSegment>)
+
     }
     return(<Fragment>
     <PrincipalTitle title='Perfil 360º'>P</PrincipalTitle>
@@ -113,9 +102,7 @@ const CustomerDetail = ({match})=>{
                 </div>
                 <div className='content-customer-detail-'>
                     <div className='top-customer-detail'>
-                        <CardSegment dic = {dicPrueba[1]}></CardSegment>
-                        <CardSegment dic = {dicpruebadetail}></CardSegment>
-                        <CardSegment dic = {dicpruebadetail}></CardSegment>
+                        {customer.dataCards.map(rowInfo =>renderTopCard(rowInfo))}
                     </div>
                     <div className='center-customer-detail'>
                         <Card header='Segmento'>
