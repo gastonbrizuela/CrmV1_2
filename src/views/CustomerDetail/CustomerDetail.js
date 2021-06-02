@@ -94,7 +94,7 @@ const CustomerDetail = ({match})=>{
                 <div className='side-detail-customer-conteiner'>
                     <div className = 'side-detail-customer-header'>
                         <div className='side-detail-customer-title'>
-                        <h3><i className="fas fa-user"></i> {customer.Name}</h3></div>
+                        <h3><i className="fas fa-user"></i> {customer['dataCustomer'].Name}</h3></div>
                     </div>
                     <div className= 'side-detail-customer-resume'>
                         {listKeys.map((key)=>renderDl(key))}

@@ -48,8 +48,8 @@ const FilterSideBar = ({filterlist,handleChangeFilter, filterViewSelect,handleCh
         <Title text={selectName}></Title>
         {listParam.map(renderInputs)}
         <div>
-            <GenericButton text='Agregar' onCl = {handleChangeFilterAdd}></GenericButton>
-            <GenericButton text='Eliminar'onCl = {handleChangeFilterAdd}></GenericButton>
+            <GenericButton text='Agregar' onCl = {handleChangeFilterAdd}>Agregar</GenericButton>
+            <GenericButton text='Eliminar'onCl = {handleChangeFilterAdd}>Eliminar</GenericButton>
         </div>
     </div>
     </Fragment>)

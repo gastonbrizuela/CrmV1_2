@@ -126,6 +126,7 @@ const CreateCamp = ()=>{
     }
     const handleChangeFilterAdd = (e) =>{
         let result 
+        console.log(e.target.value)
         if (e.target.value==='Agregar'){
             result = 1
         }

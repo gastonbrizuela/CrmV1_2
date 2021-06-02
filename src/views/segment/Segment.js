@@ -1,17 +1,63 @@
 import React, { useEffect, useState } from 'react'
 import './Segment.css'
 import GenericButton from '../../components/GenericButton/GenericButton.js'
-import {filterlist} from '../../Constant/const'
+import {filterTriggers} from '../../Constant/const'
 import FilterLine from './components/filter-line/FilterLine'
 import PrincipalTitle from '../../components/PrincipalTitle/PrincipalTitle'
 import { Fragment } from 'react'
 import TableSegment from './components/table-segment/TableSegment'
 import axios from 'axios'
 const Segment =() =>{
-    const [pageTable,setPageTable] =useState(1)
+    const createContentForm= ()=>{
+        var contentForm = {};
+        filterTriggers.forEach((filter)=>{
+            filter.listParameter.forEach((param)=>{
+                if (param.type==='date'){
+                    var hoy = new Date();
+                    var dd = hoy.getDate();
+                    var mm = hoy.getMonth()+1;
+                    var yyyy = hoy.getFullYear();
+                    hoy = '1990'+'-'+'09'+'-'+'15';
+                    contentForm[param.key]= hoy
+                }else if (param.type=== 'select'){
+                    contentForm[param.key]= param.options[0]
+                }else if (param.type=== 'number'){
+                    contentForm[param.key]= 0
+                }else{
+                    contentForm[param.key]='';
+                }
+                
+            });
+        })
+        filterTriggers.forEach ((filter)=>{
+            contentForm[filter.code]=0;
+            filter.listParameter.forEach((param)=>{
+                if (param.type==='date'){
+                    var hoy = new Date();
+                    var dd = hoy.getDate();
+                    var mm = hoy.getMonth()+1;
+                    var yyyy = hoy.getFullYear();
+                    hoy = '1990'+'-'+'09'+'-'+'15';
+                    contentForm[param.key]= hoy
+                } else if (param.type=== 'select'){
+                    contentForm[param.key]= param.options[0]
+                }else if (param.type=== 'number'){
+                    contentForm[param.key]= 0
+                }else{
+                    contentForm[param.key]='';
+                }
+                
+            });
+        })
+
+        return contentForm
+    }
+    const contentFormFinish = createContentForm()
+    const [form, setForm ] = useState(contentFormFinish)
+    const [pageTable,setPageTable] = useState(1)
     const [listCustomer, setListCustomer] = useState([{}])
     const renderFilterLine = (filter)=>{
-        return(<FilterLine filterName ={filter['name']}></FilterLine>)
+        return(<FilterLine filter ={filter}></FilterLine>)
     }
     useEffect(()=>{
         axios.get(`http://localhost:5000/customer?page=${pageTable}}&limit=10`)
@@ -29,7 +75,7 @@ const Segment =() =>{
                     <div className = 'side-bar-segment-container'>
                         <div className='segment-button-filter'><GenericButton>Filtrar</GenericButton></div>
                         <div className='segment-button-save'><GenericButton><i class="far fa-save"></i></GenericButton></div>
-                        <div className='segment-filter-side'>{filterlist.map(filteritem=>renderFilterLine(filteritem))}</div>
+                        <div className='segment-filter-side'>{filterTriggers.map(filteritem=>renderFilterLine(filteritem))}</div>
                     </div>
                     <div className = 'customer-detail-conteiner'>
                         <div className='search-container'>
