@@ -52,16 +52,18 @@ export const programationType = {1:[{key:'DateToSend',name:'Dia del envio',type:
     'Campaña':[]}}
 
 export const filterTriggers = [{code:'ChargeDate',name:'Fecha carga',
-listParameter: [{key:'Lapse',name:'Lapso',type:'number'},{key:'TypeProgrammSend', name:'Tipo de lapso', type:'select', options:['Diaria','Semanal','Mensual','Campaña']}]},
+listParameter: []},
 {code:'DateAppDownload',name:'Fecha Descarga App',
-    listParameter:[{key:'Lapse',name:'Lapso',type:'number'},{key:'TypeProgrammSend', name:'Tipo de lapso', type:'select', options:['Diaria','Semanal','Mensual','Campaña']}]},
+    listParameter:[]},
 {code:'CheckPurchaseItem',name:'Compra del articulo',
-    listParameter:[{key:'Lapse',name:'lapso',type:'number'},{key:'PurchaseItem',name:'Articulo',type:'text'},{key:'TypeProgrammSend', name:'Tipo de lapso', type:'select', options:['Diaria','Semanal','Mensual','Campaña']}]},
+    listParameter:[{key:'PurchaseItem',name:'Articulo',type:'text'}]},
 {code:'ConsumePeriodAverage',name:'Consumo promedio',
-    listParameter:[{key:'Lapse',name:'lapso',type:'number'},{key:'TypeProgrammSend', name:'Tipo de lapso', type:'select', options:['Diaria','Semanal','Mensual','Campaña']}]}]
+    listParameter:[]},
+{code:'StatusCurrentCampaign',name:'Estado en campaña Actual',
+    listParameter:[{key:'ActiveStatusCurrentCampaign',name:'Estado en campaña actual',type:'salect',options:['Activo', 'Inactivo']}]}]
 
 export const listInput = [
-    {key:'Name',name:'Nombre',type:'input',},
+    {key:'Name',name:'Nombre',type:'input'},
     {key:'TypeNotification',name:'Tipo de notificacion',type:'select', options:['Publica','Privada']},
     {key:'TypeSend',name:'Tipo de envio',type:'select',options:['Unico envio','Automatizada']},
     {key:'outstanding',name:'Destacado',type:'select',options:['Si','No']},

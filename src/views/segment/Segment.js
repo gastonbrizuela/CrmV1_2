@@ -57,8 +57,26 @@ const Segment =() =>{
     const [pageTable,setPageTable] = useState(1)
     const [listCustomer, setListCustomer] = useState([{}])
     const renderFilterLine = (filter)=>{
-        return(<FilterLine filter ={filter}></FilterLine>)
+        let datainp
+        datainp =  {key:filter.code,name:filter.code,type:'checkbox'}
+
+        console.log('filter')
+        console.log(filter)
+        return(<FilterLine filter ={filter} data = {datainp}  handleChange ={handleChange} form={form} key= {filter.code} FilterLine/>)
     }
+    const handleChange = e => {
+        let result = e.target.value
+        if (e.target.type==='checkbox'){
+            result = 0
+            if (e.target.checked){
+                result = 1
+            }
+        }
+
+        setForm({
+            ...form,
+            [e.target.name]: result
+        })}
     useEffect(()=>{
         axios.get(`http://localhost:5000/customer?page=${pageTable}}&limit=10`)
         .then(res=>{
