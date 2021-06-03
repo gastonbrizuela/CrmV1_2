@@ -39,8 +39,8 @@ const CreateTemplate = ({handleChange, setSteptSelect})=>{
                       <div className='content-template'>
                           <div style ={mystyle}>
                               <div className='button-container-template'>
-                                <div><GenericButton text='Aceptar' onCl = {()=>addContent(template.Html)}></GenericButton></div>
-                                <div><GenericButton text='Preview'></GenericButton></div>
+                                <div><GenericButton text='Aceptar' onCl = {()=>addContent(template.Html)}>Aceptar</GenericButton></div>
+                                <div><GenericButton text='Preview'>Preview</GenericButton></div>
                               </div>
                           </div>
                       </div>

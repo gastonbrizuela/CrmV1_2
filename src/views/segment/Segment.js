@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './Segment.css'
 import GenericButton from '../../components/GenericButton/GenericButton.js'
-import {filterTriggers} from '../../Constant/const'
+import {filterTriggers,optionsValueOpenOrange} from '../../Constant/const'
 import FilterLine from './components/filter-line/FilterLine'
 import PrincipalTitle from '../../components/PrincipalTitle/PrincipalTitle'
 import { Fragment } from 'react'
@@ -77,6 +77,25 @@ const Segment =() =>{
             ...form,
             [e.target.name]: result
         })}
+    const handleSave = ()=>{
+        alert('Funciona el boton handlesave')
+        console.log('Funciona correctamente el handle')
+        let returnfor = form
+        let listOtionsValueOpenOrange = Object.entries(optionsValueOpenOrange)
+        listOtionsValueOpenOrange.forEach((element)=>{
+            returnfor[element[0]] = element[1][returnfor[element[0]]]
+        })
+        console.log(returnfor)
+        axios.post('http://localhost:5000/segment', returnfor)
+        .then(response => {
+            console.log(response)
+            if(response.request.status ===200){
+                alert('se guardo correctamente')
+            }
+        }).catch(e => {
+            console.log(e);
+        });
+    }
     useEffect(()=>{
         axios.get(`http://localhost:5000/customer?page=${pageTable}}&limit=10`)
         .then(res=>{
@@ -92,7 +111,7 @@ const Segment =() =>{
             <div className = 'segment-conteiner'>
                     <div className = 'side-bar-segment-container'>
                         <div className='segment-button-filter'><GenericButton>Filtrar</GenericButton></div>
-                        <div className='segment-button-save'><GenericButton><i class="far fa-save"></i></GenericButton></div>
+                        <div className='segment-button-save'><GenericButton onCl={handleSave}><i class="far fa-save"></i></GenericButton></div>
                         <div className='segment-filter-side'>{filterTriggers.map(filteritem=>renderFilterLine(filteritem))}</div>
                     </div>
                     <div className = 'customer-detail-conteiner'>

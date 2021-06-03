@@ -8,8 +8,8 @@ const ButtonsProgressBar = ({handleChangeStep,step})=>{
         textBtn = "Finalizar"
     }
     return (<div className ='buttons-progress-bar-container' >
-            <div className='generic-button-conteiner'><GenericButton text='Anterior' onCl = {()=>handleChangeStep('menos')}></GenericButton></div>
-            <div className='generic-button-conteiner'><GenericButton text={textBtn} onCl = {()=>handleChangeStep('mas')}></GenericButton></div>
+            <div className='generic-button-conteiner'><GenericButton text='Anterior' onCl = {()=>handleChangeStep('menos')}>Anterior</GenericButton></div>
+            <div className='generic-button-conteiner'><GenericButton text={textBtn} onCl = {()=>handleChangeStep('mas')}>{textBtn}</GenericButton></div>
             </div>
     )
 }
