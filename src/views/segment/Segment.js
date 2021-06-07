@@ -7,6 +7,7 @@ import PrincipalTitle from '../../components/PrincipalTitle/PrincipalTitle'
 import { Fragment } from 'react'
 import TableSegment from './components/table-segment/TableSegment'
 import axios from 'axios'
+import InputApp from '../../components/Input/InputApp'
 const Segment =() =>{
     const createContentForm= ()=>{
         var contentForm = {};
@@ -48,7 +49,9 @@ const Segment =() =>{
                 }
                 
             });
-        })
+        }
+        )
+        contentForm['Name'] = ''
 
         return contentForm
     }
@@ -106,12 +109,17 @@ const Segment =() =>{
             console.log(err)
         })
       },[pageTable])
+   
+
     return (<Fragment>
             <PrincipalTitle title='Segmentos' ></PrincipalTitle>
             <div className = 'segment-conteiner'>
                     <div className = 'side-bar-segment-container'>
                         <div className='segment-button-filter'><GenericButton>Filtrar</GenericButton></div>
                         <div className='segment-button-save'><GenericButton onCl={handleSave}><i class="far fa-save"></i></GenericButton></div>
+                        <div className='name-segment'>
+                            <InputApp data={{type:'text',name:'Nombre',key:'Name'}}  handleChange = {handleChange} form = {form} key={'Name'}></InputApp>
+                        </div>
                         <div className='segment-filter-side'>{filterTriggers.map(filteritem=>renderFilterLine(filteritem))}</div>
                     </div>
                     <div className = 'customer-detail-conteiner'>

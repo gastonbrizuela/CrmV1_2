@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState,useEffect} from "react";
 import Input from "../../components/Input/InputApp"
 import axios from 'axios'
 import { Redirect } from "react-router-dom";
@@ -13,11 +13,11 @@ import CreateTemplate from "../CreateTemplate/CreateTemplate"
 import './CreateCamp.css'
 import ButtonTypeCamp from "./component/ButtonTypeCamp/ButtonTypeCamp";
 import PrincipalTitle from "../../components/PrincipalTitle/PrincipalTitle";
+import { chart } from "highcharts";
 
 
 
 const CreateCamp = ()=>{
-        
         const createContentForm= ()=>{
         var contentForm = {};
         listInput.forEach((intp)=>{
@@ -49,6 +49,7 @@ const CreateCamp = ()=>{
                 
             });
         })
+    
         filterTriggers.forEach((filter)=>{
             filter.listParameter.forEach((param)=>{
                 if (param.type==='date'){
@@ -109,11 +110,28 @@ const CreateCamp = ()=>{
 
         return contentForm
     }
+    useEffect(()=>{
+        axios.get(`http://localhost:5000/segment`)
+        .then(res =>{
+            createListSegement(res.data)
+        })
+        .catch(err=>{
+            console.log(err)
+        })
+    },[])
+
+    const createListSegement = (segmentList)=>{
+        let listseg = []
+        segmentList.map(segm =>{listseg.push({name:segm.Name,key:segm.internalId})})
+        setListSegment(listseg)
+
+    }
     const contentFormFinish = createContentForm()
     const [ form, setForm ] = useState(contentFormFinish)
     const [stepSelect, setSteptSelect] = useState(1)
     const [filterViewSelect, setfilterViewSelect] = useState('ChargeDate')
     const [checkSaveCamp, setCheckSaveCamp] = useState(0)
+    const [listSegment,setListSegment] = useState([])
 
     const handleChangeSaveCamp = ()=>{
         setCheckSaveCamp(1)
@@ -174,7 +192,28 @@ const CreateCamp = ()=>{
     const handleChangeFilter = e =>{
         setfilterViewSelect(e)
     }
-
+    const renderSegment = (seg) =>{
+        return (<li onClick={()=>assignsSegment(seg.key)}>{seg.name}</li>)
+    }
+    const assignsSegment = (key)=>{
+        axios.get(`http://localhost:5000/segment/${key}`)
+        .then(response =>{
+            console.log('response del segement')
+            filterTriggers.forEach(filter=>{
+                console.log(filter.code)
+                console.log(response.data[0][filter.code])
+                console.log(response.data)
+                setForm({
+                    ...form,
+                    ['ChargeDate']: 1
+                })
+            })
+        })
+        .catch(e=>{
+            console.log(e)
+        }
+        )
+    }
     const renderContend = ()=>{
         if (stepSelect === 1){
            return( <div className='definition-container'>
@@ -213,6 +252,10 @@ const CreateCamp = ()=>{
                         handleChangeFilterAdd = {handleChangeFilterAdd} 
                         form={form}>
                     </FilterSideBar>
+                    <div className='segment-auto'>
+                        <h3>Selecciona el segmento</h3>
+                        {listSegment.map(renderSegment)}
+                    </div>
             </div>)
             }
         }
