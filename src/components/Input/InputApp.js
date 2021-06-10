@@ -2,7 +2,6 @@ import React, { Fragment } from 'react';
 import "./InputApp.css"
 
 const InputApp=({data,handleChange,form})=>{
-    console.log('llegaaaa')
 
     const renderInput = ()=>{
         if (data.type === 'select'){

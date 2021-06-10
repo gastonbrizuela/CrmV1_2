@@ -122,6 +122,7 @@ const CreateCamp = ()=>{
 
     const createListSegement = (segmentList)=>{
         let listseg = []
+        console.log(segmentList)
         segmentList.map(segm =>{listseg.push({name:segm.Name,key:segm.internalId})})
         setListSegment(listseg)
 
@@ -199,15 +200,16 @@ const CreateCamp = ()=>{
         axios.get(`http://localhost:5000/segment/${key}`)
         .then(response =>{
             console.log('response del segement')
+            let sform = form
             filterTriggers.forEach(filter=>{
                 console.log(filter.code)
                 console.log(response.data[0][filter.code])
-                console.log(response.data)
-                setForm({
-                    ...form,
-                    ['ChargeDate']: 1
-                })
+                sform[filter.code] = response.data[0][filter.code]
             })
+            console.log(sform)
+            setfilterViewSelect('')
+            setForm(sform)
+            setfilterViewSelect('ChargeDate')
         })
         .catch(e=>{
             console.log(e)

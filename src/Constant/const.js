@@ -72,6 +72,10 @@ export const listInput = [
     {key:'Subject',name:'Asunto',type:'input'},
     {key:'Content',name:'Codigo del template',type:'input'}
 ]
+export const listInputLapse = [
+    {key:'LapseSegment',name:'Lapso',type:'select',options:[1,2,3,4]},
+    {key:'TypeProgramation',name:'Lapso',type:'select',options:Object.keys(optionsValueOpenOrange['TypeProgrammSend'])}
+]
 export const filterlist =[ 
 {code:'ChargeDate', name:'Fecha Carga',
     listParameter:[ {key:'StartChargeDate', name:'Fecha Inicio',type:'date'},

@@ -8,6 +8,7 @@ import { Fragment } from 'react'
 import TableSegment from './components/table-segment/TableSegment'
 import axios from 'axios'
 import InputApp from '../../components/Input/InputApp'
+import LapseFilter from './lapseFilter/LapseFilter'
 const Segment =() =>{
     const createContentForm= ()=>{
         var contentForm = {};
@@ -109,6 +110,17 @@ const Segment =() =>{
             console.log(err)
         })
       },[pageTable])
+
+      const handleSearch =()=>{
+          alert('se selecciona el boton de busqueda')
+          axios.get(`http://localhost:5000/customer/filter`,form)
+          .then(res=>{
+              console.log(res.data)
+          })
+          .catch(err=>{
+              console.log(err)
+          })
+      }
    
 
     return (<Fragment>
@@ -125,8 +137,8 @@ const Segment =() =>{
                     <div className = 'customer-detail-conteiner'>
                         <div className='search-container'>
                             <input className='search-segment' id ='search-segment' type = 'text' placeholder='Nombre Apellido Email Dni' ></input>
-                            <div className='button-search-container'><GenericButton><i className="fas fa-search"></i></GenericButton></div>
-                            
+                            <LapseFilter handleChange = {handleChange} form = {form}></LapseFilter>
+                            <div className='button-search-container'><GenericButton onCl={()=>handleSearch()}><i className="fas fa-search"></i></GenericButton></div>
                         </div>
                         <div className='table-conteiner'>
                             <TableSegment listCust = {listCustomer}></TableSegment>

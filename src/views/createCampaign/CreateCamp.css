@@ -29,5 +29,16 @@
 
 
 .segment-auto{
-  background-color: red;
+  
 }
+.segment-auto li{
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.segment-auto li:hover{
+  color: yellowgreen;
+  font-style: italic;
+  text-decoration: underline;
+}
+
