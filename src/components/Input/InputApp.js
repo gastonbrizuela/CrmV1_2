@@ -6,7 +6,7 @@ const InputApp=({data,handleChange,form})=>{
     const renderInput = ()=>{
         if (data.type === 'select'){
             return(<Fragment>
-                    <select className='input-material' key={`${data.key}select`} name= {data.key} onChange= {handleChange} value= {form[data.key]}>
+                    <select className='input-material' key={`${data.key}select`} name= {data.key} onChange= {handleChange} value= '1'>
                     {data.options.map(renderOptions)}
                     </select>
                     <label className='label-material' key ={`${data.key}label`}>{data.name}</label>

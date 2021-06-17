@@ -61,3 +61,6 @@ justify-content: center;
 .button-segment-pagetable{
     width: 50px;
 }
+.hr-segment{
+    grid-column: 1/3;
+}

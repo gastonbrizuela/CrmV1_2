@@ -58,19 +58,38 @@ const Segment =() =>{
     }
     const contentFormFinish = createContentForm()
     const [form, setForm ] = useState(contentFormFinish)
+    const [segmentSelected, setSegmentSelected] = useState({})
     const [pageTable,setPageTable] = useState(1)
     const [listCustomer, setListCustomer] = useState([{}])
+    const [dicSegement, setDicSegment] = useState({})
+    const [listSegment, setListSegment] = useState([])
     const renderFilterLine = (filter)=>{
         let datainp
         datainp =  {key:filter.code,name:filter.code,type:'checkbox'}
-
-        console.log('filter')
-        console.log(filter)
         return(<FilterLine filter ={filter} data = {datainp}  handleChange ={handleChange} form={form} key= {filter.code} FilterLine/>)
     }
+
+    useEffect(()=>{
+        axios.get(`http://localhost:5000/segment`)
+        .then(res =>{
+            let dicNameSegment = {}
+            res.data.forEach((seg)=>{
+                dicNameSegment[seg.internalId] = seg.Name
+            })
+            setDicSegment(dicNameSegment)
+            console.log(dicSegement)
+            setListSegment(Object.values(dicNameSegment))
+            console.log('listsegment')
+            console.log(listSegment)
+        })
+        .catch(err=>{
+            console.log(err)
+        })
+    },[])
+
     const handleChange = e => {
         let result = e.target.value
-        if (e.target.type==='checkbox'){
+        if (e.target.type === 'checkbox'){
             result = 0
             if (e.target.checked){
                 result = 1
@@ -89,10 +108,8 @@ const Segment =() =>{
         listOtionsValueOpenOrange.forEach((element)=>{
             returnfor[element[0]] = element[1][returnfor[element[0]]]
         })
-        console.log(returnfor)
         axios.post('http://localhost:5000/segment', returnfor)
         .then(response => {
-            console.log(response)
             if(response.request.status ===200){
                 alert('se guardo correctamente')
             }
@@ -112,7 +129,7 @@ const Segment =() =>{
       },[pageTable])
 
       const handleSearch =()=>{
-          alert('se selecciona el boton de busqueda')
+          alert('se selecciona el boton de busqueda nuevo')
           axios.get(`http://localhost:5000/customer/filter`,form)
           .then(res=>{
               console.log(res.data)
@@ -121,17 +138,36 @@ const Segment =() =>{
               console.log(err)
           })
       }
-   
+
+      const renderInputsSegment =() =>{
+            console.log('listSegment')
+            console.log(listSegment)
+            const data = {key:'segment-selected-new',name:'',type:'select', options: listSegment}
+            return <InputApp data={data}  handleChange = {handleChangeSegment} form = {segmentSelected} ></InputApp>
+      }
+
+      const handleChangeSegment = e => {
+        setSegmentSelected({
+            ...segmentSelected,
+            [e.target.name]: e.target.value
+        })
+    }
 
     return (<Fragment>
             <PrincipalTitle title='Segmentos' ></PrincipalTitle>
             <div className = 'segment-conteiner'>
                     <div className = 'side-bar-segment-container'>
-                        <div className='segment-button-filter'><GenericButton>Filtrar</GenericButton></div>
-                        <div className='segment-button-save'><GenericButton onCl={handleSave}><i class="far fa-save"></i></GenericButton></div>
+                        <div className= 'segment-list'>
+                        {renderInputsSegment()}
+                        </div>
+                        <div><button></button></div>
+                        <div className = 'hr-segment'>
+                            <hr></hr>
+                        </div>
                         <div className='name-segment'>
                             <InputApp data={{type:'text',name:'Nombre',key:'Name'}}  handleChange = {handleChange} form = {form} key={'Name'}></InputApp>
                         </div>
+                        <div className='segment-button-save'><GenericButton onCl={handleSave}><i class="far fa-save"></i></GenericButton></div>
                         <div className='segment-filter-side'>{filterTriggers.map(filteritem=>renderFilterLine(filteritem))}</div>
                     </div>
                     <div className = 'customer-detail-conteiner'>
