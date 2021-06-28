@@ -43,7 +43,8 @@ const FilterLine = ({filter ,data, handleChange, form,key})=>{
         name= {data.key} 
         key = {data.key}  
         onChange= {handleChange}
-        value= {form[data.key]}>
+        value= {form[data.key]}
+        checked={form[data.key]}>
         </input>
         &nbsp;
         <i className="far fa-calendar-minus"></i>

@@ -63,6 +63,7 @@ const Segment =() =>{
     const [listCustomer, setListCustomer] = useState([{}])
     const [dicSegement, setDicSegment] = useState({})
     const [listSegment, setListSegment] = useState([])
+    const [upadateSegment, setUpdateSegment] = useState(false)
     const renderFilterLine = (filter)=>{
         let datainp
         datainp =  {key:filter.code,name:filter.code,type:'checkbox'}
@@ -74,11 +75,11 @@ const Segment =() =>{
         .then(res =>{
             let dicNameSegment = {}
             res.data.forEach((seg)=>{
-                dicNameSegment[seg.internalId] = seg.Name
+                dicNameSegment[seg.Name] = seg.internalId
             })
             setDicSegment(dicNameSegment)
             console.log(dicSegement)
-            setListSegment(Object.values(dicNameSegment))
+            setListSegment(Object.keys(dicNameSegment))
             console.log('listsegment')
             console.log(listSegment)
         })
@@ -147,11 +148,33 @@ const Segment =() =>{
       }
 
       const handleChangeSegment = e => {
+        console.log(e)
         setSegmentSelected({
             ...segmentSelected,
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value 
         })
     }
+
+    const handleUpload = ()=>{
+        axios.get(`http://localhost:5000/segment/${dicSegement[segmentSelected['segment-selected-new']]}`)
+        .then(response =>{
+            var sform = form
+            filterTriggers.forEach(filter=>{
+                console.log(filter.code)
+                console.log(response.data[0][filter.code])
+                sform[filter.code] = response.data[0][filter.code]
+            })
+        setForm(sform)
+        setUpdateSegment(true)
+        })
+        .catch(e=>{
+            console.log(e)
+        }
+        )
+    }
+    useEffect (()=>{
+        setUpdateSegment(false)
+    },[upadateSegment])
 
     return (<Fragment>
             <PrincipalTitle title='Segmentos' ></PrincipalTitle>
@@ -160,14 +183,14 @@ const Segment =() =>{
                         <div className= 'segment-list'>
                         {renderInputsSegment()}
                         </div>
-                        <div><button></button></div>
+                        <div className='segment-button-save'><GenericButton onCl={handleUpload}><i className="fas fa-upload"></i></GenericButton></div>
                         <div className = 'hr-segment'>
                             <hr></hr>
                         </div>
                         <div className='name-segment'>
                             <InputApp data={{type:'text',name:'Nombre',key:'Name'}}  handleChange = {handleChange} form = {form} key={'Name'}></InputApp>
                         </div>
-                        <div className='segment-button-save'><GenericButton onCl={handleSave}><i class="far fa-save"></i></GenericButton></div>
+                        <div className='segment-button-save'><GenericButton onCl={handleSave}><i className="far fa-save"></i></GenericButton></div>
                         <div className='segment-filter-side'>{filterTriggers.map(filteritem=>renderFilterLine(filteritem))}</div>
                     </div>
                     <div className = 'customer-detail-conteiner'>
