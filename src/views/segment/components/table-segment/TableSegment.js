@@ -7,7 +7,6 @@ const TableSegment =({listCust})=>{
     const JsonPrueba = [{Perfil:'-',Name:'Gaston', LastName:'Brizuela', sex:'Masculino',ChargeDate:'2021-01-05', email:'gastonbrizuela@gmail.com'}]
     const titles =  ['Perfil','Nombre','Apellido','Genero','Fecha de alta','Email']
     const renderTH = (text)=>{
-        console.log(text)
         return(<th>{text}</th>)
     }
     const renderTD = (customer)=>{

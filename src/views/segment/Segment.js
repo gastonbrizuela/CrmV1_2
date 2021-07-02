@@ -10,6 +10,7 @@ import axios from 'axios'
 import InputApp from '../../components/Input/InputApp'
 import LapseFilter from './lapseFilter/LapseFilter'
 const Segment =() =>{
+    const apiURl = process.env.REACT_APP_API_URL
     const createContentForm= ()=>{
         var contentForm = {};
         filterTriggers.forEach((filter)=>{
@@ -71,17 +72,14 @@ const Segment =() =>{
     }
 
     useEffect(()=>{
-        axios.get(`http://localhost:5000/segment`)
+        axios.get(`${apiURl}/segment`)
         .then(res =>{
             let dicNameSegment = {}
             res.data.forEach((seg)=>{
                 dicNameSegment[seg.Name] = seg.internalId
             })
             setDicSegment(dicNameSegment)
-            console.log(dicSegement)
             setListSegment(Object.keys(dicNameSegment))
-            console.log('listsegment')
-            console.log(listSegment)
         })
         .catch(err=>{
             console.log(err)
@@ -102,14 +100,12 @@ const Segment =() =>{
             [e.target.name]: result
         })}
     const handleSave = ()=>{
-        alert('Funciona el boton handlesave')
-        console.log('Funciona correctamente el handle')
         let returnfor = form
         let listOtionsValueOpenOrange = Object.entries(optionsValueOpenOrange)
         listOtionsValueOpenOrange.forEach((element)=>{
             returnfor[element[0]] = element[1][returnfor[element[0]]]
         })
-        axios.post('http://localhost:5000/segment', returnfor)
+        axios.post(`${apiURl}/segment`, returnfor)
         .then(response => {
             if(response.request.status ===200){
                 alert('se guardo correctamente')
@@ -119,10 +115,9 @@ const Segment =() =>{
         });
     }
     useEffect(()=>{
-        axios.get(`http://localhost:5000/customer?page=${pageTable}}&limit=10`)
+        axios.get(`${apiURl}/customer?page=${pageTable}}&limit=10`)
         .then(res=>{
         setListCustomer(res.data)
-        console.log(res.data)
         })
         .catch(err=>{
             console.log(err)
@@ -131,7 +126,7 @@ const Segment =() =>{
 
       const handleSearch =()=>{
           alert('se selecciona el boton de busqueda nuevo')
-          axios.get(`http://localhost:5000/customer/filter`,form)
+          axios.get(`${apiURl}/customer/filter`,form)
           .then(res=>{
               console.log(res.data)
           })
@@ -141,14 +136,11 @@ const Segment =() =>{
       }
 
       const renderInputsSegment =() =>{
-            console.log('listSegment')
-            console.log(listSegment)
             const data = {key:'segment-selected-new',name:'',type:'select', options: listSegment}
             return <InputApp data={data}  handleChange = {handleChangeSegment} form = {segmentSelected} ></InputApp>
       }
 
       const handleChangeSegment = e => {
-        console.log(e)
         setSegmentSelected({
             ...segmentSelected,
             [e.target.name]: e.target.value 
@@ -156,13 +148,15 @@ const Segment =() =>{
     }
 
     const handleUpload = ()=>{
-        axios.get(`http://localhost:5000/segment/${dicSegement[segmentSelected['segment-selected-new']]}`)
+        console.log(`${apiURl}/segment/${dicSegement[segmentSelected['segment-selected-new']]}`)
+        axios.get(`${apiURl}/segment/${dicSegement[segmentSelected['segment-selected-new']]}`)
         .then(response =>{
             var sform = form
             filterTriggers.forEach(filter=>{
-                console.log(filter.code)
-                console.log(response.data[0][filter.code])
-                sform[filter.code] = response.data[0][filter.code]
+                console.log(response)
+                console.log(filter)
+                console.log(response.data[filter.code])
+                sform[filter.code] = response.data[filter.code]
             })
         setForm(sform)
         setUpdateSegment(true)
