@@ -7,6 +7,7 @@ import PrincipalTitle from '../../components/PrincipalTitle/PrincipalTitle'
 import axios from 'axios'
 
 const CustomerDetail = ({match})=>{
+    const apiURl = process.env.REACT_APP_API_URL
     const dicPrueba = {dataCustomer:{ Name: '-',
                         Code: '-',
                         Email: '-',
@@ -43,23 +44,17 @@ const CustomerDetail = ({match})=>{
     const [customer,setCustomer] =useState(dicPrueba)
     
     useEffect(()=>{
-        let sourse = axios.CancelToken.source();
-            async function fetchData(){
-                let url = `http://localhost:5000${match.match.url}`
-                axios.get(url,{cancelToken:sourse.token})
+                console.log(`${apiURl}${match.match.url}`)
+                let url = `${apiURl}${match.match.url}`
+                axios.get(url)
                .then(res=>{
+                   console.log('res.data')
                    console.log(res.data)
                    setCustomer(res.data)
                    })
                .catch(err=>{
                    console.log(err)
                 })
-            }
-            fetchData();
-            return()=>{
-                console.log('desmontando componente')
-                sourse.cancel()
-            }
        
     },[])
 

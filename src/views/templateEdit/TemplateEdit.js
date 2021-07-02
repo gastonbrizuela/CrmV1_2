@@ -8,9 +8,10 @@ import TitleCard from '../../components/TitleCard/TitleCard'
 import './TemplateEdit.css'
 
 const TemplateEdit = ()=>{
+    const apiURl = process.env.REACT_APP_API_URL
     const [listTemplate, setListTemplate] = useState([])
     useEffect(()=>{
-        Axios.get('http://localhost:5000/template')
+        Axios.get(`${apiURl}/template`)
         .then(res =>{
             setListTemplate(res.data)
         })
@@ -20,7 +21,7 @@ const TemplateEdit = ()=>{
     },[])
     const renderTemplate = (template)=>{
         const mystyle = {
-            backgroundImage:`url(http://localhost:5000/image_template/${template.IdImage}.png)`,
+            backgroundImage:`url(${apiURl}/image_template/${template.IdImage}.png)`,
             backgroundColor: "DodgerBlue",
             height:"100%",
             with:"100%",

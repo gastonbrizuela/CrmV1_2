@@ -4,13 +4,12 @@ import { Link } from "react-router-dom";
 import './Tables.css'
 import {optionsValueAppWeb} from '../../../Constant/const'
 const Tables = ({typeSend})=>{
+    const apiURl = process.env.REACT_APP_API_URL
     const [listCamp, setListCamp] = useState([])
     const [reloadCampaign, setReloadCampaig] = useState(0)
-
     useEffect(()=>{
-      axios.get('http://localhost:5000/api')
+      axios.get(`${apiURl}/campaign`)
       .then(res=>{
-        console.log(res.data)
         setListCamp(res.data)
         setReloadCampaig(0)
       })
@@ -20,8 +19,7 @@ const Tables = ({typeSend})=>{
     },[reloadCampaign])
 
     const deleteCampaign = (id)=>{
-        console.log(`se va a borrar la campaña ${id}`)
-        axios.delete(`http://localhost:5000/campaign/${id}`)
+        axios.delete(`${apiURl}/campaign/${id}`)
         .then(setReloadCampaig(1))
         .catch(err=>{
             console.log(err)

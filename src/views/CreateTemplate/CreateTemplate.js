@@ -7,9 +7,10 @@ import TitleCard from '../../components/TitleCard/TitleCard'
 import './CreateTemplate.css'
 
 const CreateTemplate = ({handleChange, setSteptSelect})=>{
-  const [listTemplate, setListTemplate] = useState([])
-  useEffect(()=>{
-      Axios.get('http://localhost:5000/template')
+    const apiURl = process.env.REACT_APP_API_URL
+    const [listTemplate, setListTemplate] = useState([])
+    useEffect(()=>{
+      Axios.get(`${apiURl}/template`)
       .then(res =>{
           setListTemplate(res.data)
       })
@@ -18,8 +19,9 @@ const CreateTemplate = ({handleChange, setSteptSelect})=>{
       })
   },[])
   const renderTemplate = (template)=>{
+      console.log(`url(${apiURl}/image_template/${template.IdImage}.png)`)
       const mystyle = {
-          backgroundImage:`url(http://localhost:5000/image_template/${template.IdImage}.png)`,
+          backgroundImage:`url(${apiURl}/image_template/${template.IdImage}.png)`,
           backgroundColor: "DodgerBlue",
           height:"100%",
           with:"100%",

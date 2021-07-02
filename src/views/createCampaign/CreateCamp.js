@@ -18,6 +18,7 @@ import { chart } from "highcharts";
 
 
 const CreateCamp = ()=>{
+        const apiURl = process.env.REACT_APP_API_URL
         const createContentForm= ()=>{
         var contentForm = {};
         listInput.forEach((intp)=>{
@@ -111,7 +112,9 @@ const CreateCamp = ()=>{
         return contentForm
     }
     useEffect(()=>{
-        axios.get(`http://localhost:5000/segment`)
+        console.log('entra al use efect')
+        console.log(`${apiURl}/segment/`)
+        axios.get(`${apiURl}/segment/`)
         .then(res =>{
             createListSegement(res.data)
         })
@@ -173,7 +176,7 @@ const CreateCamp = ()=>{
                         returnfor[element[0]] = element[1][returnfor[element[0]]]
                     })
                     console.log(returnfor)
-                    axios.post('http://localhost:5000/api', returnfor)
+                    axios.post(`${apiURl}/campaign`, returnfor)
                     .then(response => {
                         console.log(response)
                         handleChangeSaveCamp()
@@ -197,14 +200,14 @@ const CreateCamp = ()=>{
         return (<li onClick={()=>assignsSegment(seg.key)}>{seg.name}</li>)
     }
     const assignsSegment = (key)=>{
-        axios.get(`http://localhost:5000/segment/${key}`)
+        axios.get(`${apiURl}/segment/${key}`)
         .then(response =>{
-            console.log('response del segement')
+            console.log(response)
             let sform = form
             filterTriggers.forEach(filter=>{
                 console.log(filter.code)
-                console.log(response.data[0][filter.code])
-                sform[filter.code] = response.data[0][filter.code]
+                console.log(response.data[filter.code])
+                sform[filter.code] = response.data[filter.code]
             })
             console.log(sform)
             setfilterViewSelect('')
